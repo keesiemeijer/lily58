@@ -1,0 +1,14 @@
+file_format: "1"
+id: lily58
+name: lily58
+type: shield
+url:
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+    - keys
+    - display
+    - encoder
+siblings:
+    - lily58_left
+    - lily58_right
