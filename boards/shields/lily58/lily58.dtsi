@@ -13,7 +13,9 @@
     chosen {
         zephyr,display = &oled;
         zmk,physical-layout = &kata0510_lily58_layout;
+        zmk,matrix-transform = &default_transform;
     };
+    
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <14>;
