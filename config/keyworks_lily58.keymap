@@ -313,7 +313,7 @@
 &kp LG(Z)      &kp C_BRI_DN              &kp C_BRI_UP               &kp LC(UP)               &kp LS(LC(LA(LG(L))))  &kp LC(F3)                             &kp C_PREV        &kp C_PP           &kp C_NEXT         &kp C_MUTE         &kp C_VOL_DN       &kp C_VOL_UP
 &kp LG(LS(Z))  &kp LG(Q)                 &kp LG(W)                  &kp ESCAPE               &howmerow              &kp LG(EQUAL)                          &kp C_VOL_UP      &kp LG(LBKT)       &kp UP             &kp LG(RBKT)       &trans             &msc SCRL_DOWN
 &mo 5          &kp LCTRL                 &kp LALT                   &kp LGUI                 &kp LSHFT              &kp LG(MINUS)                          &kp C_VOL_DN      &kp LEFT           &kp DOWN           &kp RIGHT          &kp LS(LA(LC(F)))  &msc SCRL_UP
-&to 3          &kp LS(LC(LA(LG(LEFT))))  &kp LS(LC(LA(LG(RIGHT))))  &kp LS(LC(LA(LG(SQT))))  &windowsize            &kp LG(N0)     &kp LG(GRAVE)   &trans  &kp LA(LG(LEFT))  &kp LA(LG(RIGHT))  &kp RC(RS(PG_UP))  &kp RC(RS(PG_DN))  &trans             &to 3
+&to 3          &kp LS(LC(LA(LG(LEFT))))  &kp LS(LC(LA(LG(RIGHT))))  &kp LS(LC(LA(LG(SQT))))  &windowsize            &kp LG(N0)     &kp LG(GRAVE)   &trans  &kp LA(LG(LEFT))  &kp LA(LG(RIGHT))  &kp RC(RS(PG_UP))  &kp RC(RS(PG_DN))  &studio_unlock     &to 3
                                                                     &trans                   &trans                 &trans         &trans          &trans  &trans            &trans             &trans
             >;
 
