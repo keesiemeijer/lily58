@@ -1,17 +1,17 @@
 # Copyright (c) 2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_LILY58_LEFT
+if SHIELD_KEYWORKS_LILY58_LEFT
 
 # Name must be less than 16 characters long!
 config ZMK_KEYBOARD_NAME
-    default "Lily58"
+    default "Lily58 by KeyWorks"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 endif
 
-if SHIELD_LILY58_LEFT || SHIELD_LILY58_RIGHT
+if SHIELD_KEYWORKS_LILY58_LEFT || SHIELD_KEYWORKS_LILY58_RIGHT
 
 config ZMK_SPLIT
     default y
@@ -45,4 +45,4 @@ endchoice
 
 endif # LVGL
 
-endif # SHIELD_LILY58_LEFT || SHIELD_LILY58_RIGHT
+endif # SHIELD_KEYWORKS_LILY58_LEFT || SHIELD_KEYWORKS_LILY58_RIGHT

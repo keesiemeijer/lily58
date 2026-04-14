@@ -5,7 +5,7 @@
  */
 
 // shared between left and right overlay
-#include "lily58.dtsi"
+#include "keyworks_lily58.dtsi"
 
 // Label of the kscan node in the dtsi
 &kscan0 {

@@ -1,6 +1,6 @@
 file_format: "1"
-id: lily58
-name: lily58
+id: keyworks_lily58
+name: Lily58 by KeyWorks
 type: shield
 url:
 requires: [pro_micro]
@@ -10,5 +10,5 @@ features:
     - display
     - encoder
 siblings:
-    - lily58_left
-    - lily58_right
+    - keyworks_lily58_left
+    - keyworks_lily58_right
