@@ -1,6 +1,6 @@
 file_format: "1"
 id: keyworks_lily58
-name: Lily58 by KeyWorks
+name: KeyWorks Lily58
 type: shield
 url:
 requires: [pro_micro]

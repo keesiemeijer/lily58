@@ -5,7 +5,7 @@ if SHIELD_KEYWORKS_LILY58_LEFT
 
 # Name must be less than 16 characters long!
 config ZMK_KEYBOARD_NAME
-    default "Lily58 by KeyWorks"
+    default "KeyWorks Lily58"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
