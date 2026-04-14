@@ -9,6 +9,8 @@ features:
     - keys
     - display
     - encoder
+    - studio
+    - pointer
 siblings:
     - keyworks_lily58_left
     - keyworks_lily58_right
