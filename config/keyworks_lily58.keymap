@@ -217,7 +217,7 @@
             // ╭──────────────────────────────────────────────────────────╮                     ╭────────────────────────────────────────────────────────────────────╮
             // │ ESC   │  1  │  2  │  3           │  4         │  5       │                     │  6      │  7          │  8           │  9  │  0  │ BKSPC           │
             // │ TAB   │  Q  │  W  │  E           │  R         │  T       │                     │  Y      │  U          │  I           │  O  │  P  │   -             │
-            // │ BKSPC │  A  │  S  │  D / Layer 2 │  F / SHIFT │  G       ╰─────────╮  ╭────────╯  H      │  J  / SHIFT │  K / Layer 2 │  L  │  ;  │   '             │
+            // │ CTRL  │  A  │  S  │  D / Layer 2 │  F / SHIFT │  G       ╰─────────╮  ╭────────╯  H      │  J  / SHIFT │  K / Layer 2 │  L  │  ;  │   '             │
             // │ SHIFT │  Z  │  X  │  C           │  V         │  B       │ Alfred  │  │ Alfred │  N      │  M          │  ,           │  .  │  /  │ SHIFT/CAPS LOCK │
             // ╰───────────────────╮  ALT         │  GUI       │  Layer 4 │ SPACE   │  │ ENTER  │  Layer4 │  GUI        │  CTRL        ╭─────────────────────────────╯
             //                     ╰────────────────────────────────────────────────╯  ╰───────────────────────────────────────────────╯
@@ -225,7 +225,7 @@
             bindings = <
 &kp ESC        &kp N1  &kp N2  &kp N3             &kp N4                      &kp N5                          &kp N6  &kp N7                        &kp N8              &kp N9   &kp N0    &kp BSPC
 &kp TAB        &kp Q   &kp W   &kp E              &kp R                       &kp T                           &kp Y   &kp U                         &kp I               &kp O    &kp P     &kp MINUS
-&kp BACKSPACE  &kp A   &kp S   &left_hand_LT 2 D  &left_hand_MT LEFT_SHIFT F  &kp G                           &kp H   &right_hand_MT RIGHT_SHIFT J  &right_hand_LT 2 K  &kp L    &kp SEMI  &kp SQT
+&kp LCTRL      &kp A   &kp S   &left_hand_LT 2 D  &left_hand_MT LEFT_SHIFT F  &kp G                           &kp H   &right_hand_MT RIGHT_SHIFT J  &right_hand_LT 2 K  &kp L    &kp SEMI  &kp SQT
 &kp LSHFT      &kp Z   &kp X   &kp C              &kp V                       &kp B   &alfred      &alfred    &kp N   &kp M                         &kp COMMA           &kp DOT  &kp FSLH  &shift_caps_lock
                                &kp RALT           &kp LGUI                    &mo 4   &kp SPACE    &kp ENTER  &mo 4   &kp RGUI                      &kp RCTRL
             >;
