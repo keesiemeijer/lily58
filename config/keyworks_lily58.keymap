@@ -342,7 +342,7 @@
 &bt BT_CLR  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                    &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &trans  &trans  &trans
 &trans      &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                   &trans            &trans             &trans             &trans  &trans  &trans
 &trans      &trans         &trans         &trans         &trans         &trans                          &trans            &trans             &trans             &trans  &trans  &trans
-&trans      &trans         &trans         &trans         &trans         &kp HASH      &to 6     &trans  &trans            &trans             &trans             &trans  &trans  &trans
+&trans      &trans         &bootloader    &trans         &trans         &trans        &to 6     &trans  &trans            &trans             &trans             &trans  &trans  &trans
                                           &trans         &trans         &trans        &trans    &trans  &trans            &trans             &trans
             >;
 
