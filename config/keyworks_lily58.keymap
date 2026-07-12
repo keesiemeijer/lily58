@@ -112,13 +112,20 @@
             bindings = <&kp LS(LA(LEFT_CONTROL))>;
             key-positions = <55 56 57>;
         };
+        // same as above
         combo_meh_action_keys {
             bindings = <&kp LS(LA(LEFT_CONTROL))>;
             key-positions = <52 55>;
         };
+        // Toggle layer 0 combo
         combo_escape_to_default_layer {
             bindings = <&to 0>;
             key-positions = <36 0>;
+        };
+        // Toggle layer 3 combo
+        combo_escape_to_default_layer {
+            bindings = <&to 3>;
+            key-positions = <0 11>;
         };
     };
 
