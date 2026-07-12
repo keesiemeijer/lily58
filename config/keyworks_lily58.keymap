@@ -123,7 +123,7 @@
             key-positions = <36 0>;
         };
         // Toggle layer 3 combo
-        combo_escape_to_default_layer {
+        combo_toggle_mouse_layer {
             bindings = <&to 3>;
             key-positions = <0 11>;
         };
