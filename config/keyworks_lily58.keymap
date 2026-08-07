@@ -208,6 +208,30 @@
                 , <&macro_release &kp LS(LA(LC(I)))>
                 ;
         };
+
+        // macOS: go to top of page/window, then return to layer 0
+        page_top_layer0: page_top_layer0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+            = <&macro_press &kp LG(UP)>
+            , <&macro_release &kp LG(UP)>
+                , <&macro_press &to 0>
+                , <&macro_release &to 0>
+                ;
+        };
+
+        // macOS: go to bottom of page/window, then return to layer 0
+        page_bottom_layer0: page_bottom_layer0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+            = <&macro_press &kp LG(DOWN)>
+            , <&macro_release &kp LG(DOWN)>
+                , <&macro_press &to 0>
+                , <&macro_release &to 0>
+                ;
+        };
     };
 
 
@@ -297,9 +321,9 @@
 
             bindings = <
 &to 2   &kp LC(F2)  &kp LC(F8)  &kp LC(F5)        &trans      &kp LC(F3)                      &kp LC(J)       &kp LC(K)       &trans           &trans           &trans    &trans
-&trans  &kp LC(J)   &kp LC(K)   &kp LS(TAB)       &kp TAB     &kp LG(UP)                      &trans          &mkp MB1        &mmv MOVE_UP     &mkp MB2         &trans    &msc SCRL_DOWN
-&trans  &trans      &trans      &minus_five_tabs  &five_tabs  &kp LG(DOWN)                    &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &trans    &msc SCRL_UP
-&to 0   &trans      &trans      &trans            &trans      &trans        &trans    &trans  &msc SCRL_UP    &msc SCRL_RIGHT &msc SCRL_LEFT   &msc SCRL_LEFT   &trans    &to 0
+&trans  &kp LC(J)   &kp LC(K)   &kp LS(TAB)       &kp TAB     &page_top_layer0                 &msc SCRL_DOWN  &mkp MB1        &mmv MOVE_UP     &mkp MB2         &trans    &msc SCRL_DOWN
+&trans  &trans      &trans      &minus_five_tabs  &five_tabs  &page_bottom_layer0              &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &trans    &msc SCRL_UP
+&to 0   &trans      &trans      &trans            &trans      &trans        &trans    &trans  &trans          &msc SCRL_RIGHT &msc SCRL_LEFT   &msc SCRL_LEFT   &trans    &to 0
                                 &trans            &trans      &mo 4         &trans    &trans  &mo 4           &trans          &trans
             >;
 
