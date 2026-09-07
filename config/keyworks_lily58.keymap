@@ -239,18 +239,19 @@
         compatible = "zmk,keymap";
 
         // Layer (0). Default layer with minimal home row mods
+        // TD = tap dance
 
         // Hold f or j to activate shift
         // Hold d or k to momentary activate the special characters layer (2)
         // Momentary activate the action (4) and mouse (3) layers from this layer
         // Hit escape to get back to this layer (if you've toggled to another layer)
         default_layer {
-            // ╭──────────────────────────────────────────────────────────╮                     ╭────────────────────────────────────────────────────────────────────╮
-            // │ ESC   │  1  │  2  │  3           │  4         │  5       │                     │  6      │  7          │  8           │  9  │  0  │ BKSPC           │
-            // │ TAB   │  Q  │  W  │  E           │  R         │  T       │                     │  Y      │  U          │  I           │  O  │  P  │   -             │
-            // │ CTRL  │  A  │  S  │  D / Layer 2 │  F / SHIFT │  G       ╰─────────╮  ╭────────╯  H      │  J  / SHIFT │  K / Layer 2 │  L  │  ;  │   '             │
-            // │ SHIFT │  Z  │  X  │  C           │  V         │  B       │ Alfred  │  │ Alfred │  N      │  M          │  ,           │  .  │  /  │ SHIFT/CAPS LOCK │
-            // ╰───────────────────╮  ALT         │  GUI       │  Layer 4 │ SPACE   │  │ ENTER  │  Layer4 │  GUI        │  CTRL        ╭─────────────────────────────╯
+            // ╭──────────────────────────────────────────────────────────╮                     ╭──────────────────────────────────────────────────────────────────────────────────╮
+            // │ ESC   │  1  │  2  │  3           │  4         │  5       │                     │  6      │  7          │  8           │  9  │  0  │ BKSPC                         │
+            // │ TAB   │  Q  │  W  │  E           │  R         │  T       │                     │  Y      │  U          │  I           │  O  │  P  │   -                           │
+            // │ CTRL  │  A  │  S  │  D / Layer 2 │  F / SHIFT │  G       ╰─────────╮  ╭────────╯  H      │  J  / SHIFT │  K / Layer 2 │  L  │  ;  │   '                           │
+            // │ SHIFT │  Z  │  X  │  C           │  V         │  B       │ Alfred  │  │ Alfred │  N      │  M          │  ,           │  .  │  /  │ TD 1: Shift - TD 2: Caps Lock │
+            // ╰───────────────────╮  ALT         │  GUI       │  Layer 4 │ SPACE   │  │ ENTER  │  Layer4 │  GUI        │  CTRL        ╭───────────────────────────────────────────╯
             //                     ╰────────────────────────────────────────────────╯  ╰───────────────────────────────────────────────╯
 
             bindings = <
@@ -258,7 +259,7 @@
 &kp TAB        &kp Q   &kp W   &kp E              &kp R                       &kp T                           &kp Y   &kp U                         &kp I               &kp O    &kp P     &kp MINUS
 &kp LCTRL      &kp A   &kp S   &left_hand_LT 2 D  &left_hand_MT LEFT_SHIFT F  &kp G                           &kp H   &right_hand_MT RIGHT_SHIFT J  &right_hand_LT 2 K  &kp L    &kp SEMI  &kp SQT
 &kp LSHFT      &kp Z   &kp X   &kp C              &kp V                       &kp B   &alfred      &alfred    &kp N   &kp M                         &kp COMMA           &kp DOT  &kp FSLH  &shift_caps_lock
-                               &kp RALT           &kp LGUI                    &mo 4   &kp SPACE    &kp ENTER  &mo 4   &kp RGUI                      &kp RCTRL
+                               &kp LALT           &kp LGUI                    &mo 4   &kp SPACE    &kp ENTER  &mo 4   &kp RGUI                      &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -311,20 +312,20 @@
         // Layer (3). Mouse and scroll movements
         // To toggle the mouse layer, momentary activate the action layer (4) and hit shift at the same time
         mouse_layer {
-            // ╭─────────────────────────────────────────────────────────────────────────────────────────╮              ╭─────────────────────────────────────────────────────────────╮
-            // │  L2       │ focus menu bar │ focus status │ focus window toolbar │         │ focus dock │              │ web prev │ web next │          │          │     │           │
-            // │           │ reddit prev    │ reddit next  │ -tab                 │ +tab    │ top        │              │          │  L click │ mouse ^  │ R click  │     │ scroll ^  │
-            // │           │                │              │ -5 tabs              │ +5 tabs │ bottom     ╰─────╮  ╭─────╯ scroll ^ │  < mouse │ mouse v  │ mouse >  │     │ scroll v  │
-            // │ toggle L0 │                │              │                      │         │            │     │  │     │ scroll v │ < scroll │ scroll > │ scroll > │     │ toggle L0 │
-            // ╰───────────────────────────────────────────╮                      │         │ L4         │     │  │     │ L4       │          │          ╭────────────────────────────╯
-            //                                             ╰───────────────────────────────────────────────────╯  ╰──────────────────────────────────────╯
+            // ╭────────────────────────────────────────────────────────────────────────────────────╮              ╭─────────────────────────────────────────────────────────────╮
+            // │  L2  │ focus menu bar │ focus status │ focus window toolbar │         │ focus dock │              │          │          │          │          │     │           │
+            // │      │                │              │                      │         │ top        │              │ scroll v │  L click │ mouse ^  │ R click  │     │ scroll v  │
+            // │      │                │              │                      │         │ bottom     ╰─────╮  ╭─────╯ scroll ^ │  < mouse │ mouse v  │ mouse >  │     │ scroll ^  │
+            // │  L0  │                │              │                      │         │            │     │  │     │          │ scroll > │ < scroll │ < scroll │     │ toggle L0 │
+            // ╰──────────────────────────────────────╮                      │         │            │     │  │     │          │          │          ╭────────────────────────────╯
+            //                                        ╰───────────────────────────────────────────────────╯  ╰──────────────────────────────────────╯
 
             bindings = <
-&to 2   &kp LC(F2)  &kp LC(F8)  &kp LC(F5)        &trans      &kp LC(F3)                      &kp LC(J)       &kp LC(K)       &trans           &trans           &trans    &trans
-&trans  &kp LC(J)   &kp LC(K)   &kp LS(TAB)       &kp TAB     &page_top_layer0                 &msc SCRL_DOWN  &mkp MB1        &mmv MOVE_UP     &mkp MB2         &trans    &msc SCRL_DOWN
-&trans  &trans      &trans      &minus_five_tabs  &five_tabs  &page_bottom_layer0              &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &trans    &msc SCRL_UP
-&to 0   &trans      &trans      &trans            &trans      &trans        &trans    &trans  &trans          &msc SCRL_RIGHT &msc SCRL_LEFT   &msc SCRL_LEFT   &trans    &to 0
-                                &trans            &trans      &mo 4         &trans    &trans  &mo 4           &trans          &trans
+&to 2   &kp LC(F2)  &kp LC(F8)  &kp LC(F5)  &trans  &kp LC(F3)                           &trans          &trans           &trans          &trans           &trans  &trans
+&trans  &trans      &trans      &trans      &trans  &page_top_layer0                     &msc SCRL_DOWN  &mkp MB1         &mmv MOVE_UP    &mkp MB2         &trans  &msc SCRL_DOWN
+&trans  &trans      &trans      &trans      &trans  &page_bottom_layer0                  &msc SCRL_UP    &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &msc SCRL_UP
+&to 0   &trans      &trans      &trans      &trans  &trans               &trans  &trans  &trans          &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_LEFT   &trans  &to 0
+                                &trans      &trans  &trans               &trans  &trans  &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
