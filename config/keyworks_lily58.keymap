@@ -23,7 +23,7 @@
 //           50 51 52 53     54 55 56 57
 
 // Layers
-// Layers can be changed with a normal key press and with combos.
+// Layers can be changed/toggled with a tap or hold key presses and with combos.
 
 // Go down one layer with ESC
 // Layer 0 (tap)(Combo)(toggle) : 0 and 36
@@ -34,6 +34,10 @@
 // Layer 4 (tap)                : 52 or 55
 // Layer 5 (hold)(Combo)        : 52 and 24
 // Layer 5 (hold)(Combo)        : 55 and 24
+
+// Bootloader Mode
+// For the left side, activate bootloader mode by holding layer 5 and typing `X` (position 38)
+// For the right side, activate bootloader mode by holding layer 5 and typing `.` (position 47)
 
 // Caps Word
 // https://zmk.dev/docs/keymaps/behaviors/caps-word
@@ -119,7 +123,8 @@
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&kp RSHFT>, <&caps_word>;
-        
+        }
+
         // Tab dance 1aunch Alfred app - 2: sticky MEH key combination
         // https://zmkv/docs/keymaps/behaviors/sticky-key
         td_alfred_meh: tap_dance_alfred_meh {
