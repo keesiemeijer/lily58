@@ -128,7 +128,7 @@
         // Tab dance 1aunch Alfred app - 2: sticky MEH key combination
         // https://zmkv/docs/keymaps/behaviors/sticky-key
         td_alfred_meh: tap_dance_alfred_meh {
-            compatible = k,behavior-tap-dance";
+            compatible = zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&alfred>, <&sk LS(LA(LEFT_CONTROL))>;
