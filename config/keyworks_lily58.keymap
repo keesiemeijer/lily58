@@ -130,9 +130,14 @@
             key-positions = <24 35>;
         };
         // Momentary layer 3 combo
-        combo_momentary_mouse_layer {
+        combo_momentary_mouse_layer_right {
             bindings = <&mo 3>;
             key-positions = <27 28>;
+        };
+        // Momentary layer 3 combo
+        combo_momentary_mouse_layer_left {
+            bindings = <&mo 3>;
+            key-positions = <31 32>;
         };
     };
 
@@ -287,7 +292,7 @@
             // │  L2  │ focus menu bar │ focus status │ focus window toolbar │         │ focus dock │              │          │          │          │          │     │           │
             // │      │                │              │                      │         │ top        │              │ scroll v │  L click │ mouse ∧  │ R click  │     │ scroll v  │
             // │      │                │              │                      │         │ bottom     ╰─────╮  ╭─────╯ scroll ∧ │  < mouse │ mouse v  │ mouse >  │     │ scroll ∧  │
-            // │  L0  │                │              │                      │         │            │     │  │     │          │ scroll > │ < scroll │ < scroll │     │ toggle L0 │
+            // │  L0  │                │              │                      │         │ bottom     │     │  │     │          │ scroll > │ < scroll │ < scroll │     │ toggle L0 │
             // ╰──────────────────────────────────────╮                      │         │            │     │  │     │          │          │          ╭────────────────────────────╯
             //                                        ╰───────────────────────────────────────────────────╯  ╰──────────────────────────────────────╯
 
@@ -295,7 +300,7 @@
 &to 2   &kp LC(F2)  &kp LC(F8)  &kp LC(F5)  &trans  &kp LC(F3)                           &trans          &trans           &trans          &trans           &trans  &trans
 &trans  &trans      &trans      &trans      &trans  &page_top_layer0                     &msc SCRL_DOWN  &mkp MB1         &mmv MOVE_UP    &mkp MB2         &trans  &msc SCRL_DOWN
 &trans  &trans      &trans      &trans      &trans  &page_bottom_layer0                  &msc SCRL_UP    &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &msc SCRL_UP
-&to 0   &trans      &trans      &trans      &trans  &trans               &trans  &trans  &trans          &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_LEFT   &trans  &to 0
+&to 0   &trans      &trans      &trans      &trans  &trans               &trans  &trans  &msc SCRL_UP    &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_LEFT   &trans  &to 0
                                 &trans      &trans  &trans               &trans  &trans  &trans          &trans
             >;
 
@@ -313,9 +318,9 @@
             //                                           ╰─────────────────────────────────────────────────╯  ╰────────────────────────────────────────╯
 
             bindings = <
-&kp LG(Z)      &kp C_BRI_DN              &kp C_BRI_UP               &kp LC(UP)             &kp LS(LC(LA(LG(L))))  &windowsize                             &kp C_PREV        &kp C_PP           &kp C_NEXT         &kp C_MUTE         &kp C_VOL_DN       &kp C_VOL_UP
-&kp LG(LS(Z))  &kp LG(Q)                 &kp LG(W)                  &kp ESCAPE             &howmerow              &kp LG(EQUAL)                          &trans            &kp LG(LBKT)       &kp UP             &kp LG(RBKT)       &trans             &msc SCRL_DOWN
-&mo 5          &kp LCTRL                 &kp LALT                   &kp LGUI               &kp LSHFT              &kp LG(MINUS)                          &trans            &kp LEFT           &kp DOWN           &kp RIGHT          &kp LS(LA(LC(F)))  &msc SCRL_UP
+&kp LG(Z)      &kp C_BRI_DN              &kp C_BRI_UP               &kp LC(UP)             &kp LS(LC(LA(LG(L))))  &windowsize                            &kp C_PREV       &kp C_PP           &kp C_NEXT         &kp C_MUTE         &kp C_VOL_DN       &kp C_VOL_UP
+&kp LG(LS(Z))  &kp LG(Q)                 &kp LG(W)                  &kp ESCAPE             &howmerow              &kp LG(EQUAL)                          &msc SCRL_DOWN    &kp LG(LBKT)       &kp UP             &kp LG(RBKT)       &trans             &msc SCRL_DOWN
+&mo 5          &kp LCTRL                 &kp LALT                   &kp LGUI               &kp LSHFT              &kp LG(MINUS)                          &msc SCRL_UP      &kp LEFT           &kp DOWN           &kp RIGHT          &kp LS(LA(LC(F)))  &msc SCRL_UP
 &to 3          &kp LS(LC(LA(LG(LEFT))))  &kp LS(LC(LA(LG(RIGHT))))  &kp LS(LC(LA(LG(F))))  &kp LG(LS(C))          &kp LG(N0)     &kp LG(GRAVE)   &trans  &kp LA(LG(LEFT))  &kp LA(LG(RIGHT))  &kp RC(RS(PG_UP))  &kp RC(RS(PG_DN))  &trans             &to 3
                                                                     &trans                 &trans                 &trans         &trans          &trans  &trans            &trans             &trans
             >;
