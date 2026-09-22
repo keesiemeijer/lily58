@@ -22,6 +22,19 @@
 //  36 37 38 39 40 41 42     43 44 45 46 47 48 49
 //           50 51 52 53     54 55 56 57
 
+// Layers
+// Layers can be changed with keys and with a combo.
+
+// Go down one layer with ESC
+// Layer 0 (tap)(Combo)(toggle) : 0 and 36
+// Layer 2 (hold)               : 27 or 32
+// Layer 3 (hold)(Combo)        : 27 and 28
+// Layer 3 (hold)(Combo)        : 31 and 32
+// Layer 3 (tap)(Combo)(toggle) : 24 and 35
+// Layer 4 (tap)                : 52 or 55
+// Layer 5 (hold)(Combo)        : 52 and 24
+// Layer 5 (hold)(Combo)        : 55 and 24
+
 // https://zmk.dev/docs/keymaps/behaviors/caps-word
 &caps_word {
     continue-list = <UNDERSCORE MINUS BACKSPACE DELETE SPACE>;
@@ -119,22 +132,22 @@
             bindings = <&kp LS(LA(LEFT_CONTROL))>;
             key-positions = <52 55>;
         };
-        // Toggle layer 0 combo
+        // L Shift + Escape: Toggle layer 0 combo
         combo_escape_to_default_layer {
             bindings = <&to 0>;
             key-positions = <36 0>;
         };
-        // Toggle layer 3 combo
+        // L CTRL + ': Toggle layer 3 combo
         combo_toggle_mouse_layer {
             bindings = <&to 3>;
             key-positions = <24 35>;
         };
-        // Momentary layer 3 combo
+        // D + F: Momentary layer 3 combo
         combo_momentary_mouse_layer_right {
             bindings = <&mo 3>;
             key-positions = <27 28>;
         };
-        // Momentary layer 3 combo
+        // J + K: Momentary layer 3 combo
         combo_momentary_mouse_layer_left {
             bindings = <&mo 3>;
             key-positions = <31 32>;
@@ -223,11 +236,11 @@
         // Hit escape to get back to this layer (if you've toggled to another layer)
         default_layer {
             // ╭──────────────────────────────────────────────────────────╮                     ╭──────────────────────────────────────────────────────────────────────────────────╮
-            // │ ESC   │  1  │  2  │  3           │  4         │  5       │                     │  6      │  7          │  8           │  9  │  0  │ BKSPC                         │
-            // │ TAB   │  Q  │  W  │  E           │  R         │  T       │                     │  Y      │  U          │  I           │  O  │  P  │   -                           │
-            // │ CTRL  │  A  │  S  │  D / Layer 2 │  F / SHIFT │  G       ╰─────────╮  ╭────────╯  H      │  J  / SHIFT │  K / Layer 2 │  L  │  ;  │   '                           │
-            // │ SHIFT │  Z  │  X  │  C           │  V         │  B       │ Alfred  │  │ Mute   │  N      │  M          │  ,           │  .  │  /  │ TD 1: Shift - TD 2: Caps Lock │
-            // ╰───────────────────╮  ALT         │  GUI       │  Layer 4 │ SPACE   │  │ ENTER  │  Layer4 │  GUI        │  CTRL        ╭───────────────────────────────────────────╯
+            // │ ESC   │  1  │  2  │  3           │  4         │  5       │                     │  6       │  7          │  8           │  9  │  0  │ BKSPC                         │
+            // │ TAB   │  Q  │  W  │  E           │  R         │  T       │                     │  Y       │  U          │  I           │  O  │  P  │   -                           │
+            // │ CTRL  │  A  │  S  │  D / Layer 2 │  F / SHIFT │  G       ╰─────────╮  ╭────────╯  H       │  J  / SHIFT │  K / Layer 2 │  L  │  ;  │   '                           │
+            // │ SHIFT │  Z  │  X  │  C           │  V         │  B       │ Alfred  │  │ Mute   │  N       │  M          │  ,           │  .  │  /  │ TD 1: Shift - TD 2: Caps Lock │
+            // ╰───────────────────╮  ALT         │  GUI       │  Layer 4 │ SPACE   │  │ ENTER  │  Layer 4 │  GUI        │  CTRL        ╭───────────────────────────────────────────╯
             //                     ╰────────────────────────────────────────────────╯  ╰───────────────────────────────────────────────╯
 
             bindings = <
