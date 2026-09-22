@@ -123,7 +123,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&kp RSHFT>, <&caps_word>;
-        }
+        };
 
         // Tab dance 1aunch Alfred app - 2: sticky MEH key combination
         // https://zmkv/docs/keymaps/behaviors/sticky-key
