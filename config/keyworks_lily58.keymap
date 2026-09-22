@@ -23,7 +23,7 @@
 //           50 51 52 53     54 55 56 57
 
 // Layers
-// Layers can be changed with a normal key press and with a combos.
+// Layers can be changed with a normal key press and with combos.
 
 // Go down one layer with ESC
 // Layer 0 (tap)(Combo)(toggle) : 0 and 36
@@ -35,15 +35,19 @@
 // Layer 5 (hold)(Combo)        : 52 and 24
 // Layer 5 (hold)(Combo)        : 55 and 24
 
+// Caps Word
 // https://zmk.dev/docs/keymaps/behaviors/caps-word
 &caps_word {
     continue-list = <UNDERSCORE MINUS BACKSPACE DELETE SPACE>;
 };
 
 / {
-
     behaviors {
-        // Left home row momentary layer change
+
+        // Layer Tap
+        //https://zmk.dev/docs/keymaps/behaviors/hold-tap#layer-tap
+
+        // Left (home row) momentary layer 2 change
         left_hand_LT: left_hand_LT {
             compatible = "zmk,behavior-hold-tap";
             label = "LEFT_HAND_LT";
@@ -58,7 +62,7 @@
             quick-tap-ms = <175>;
         };
 
-        // Right home row momentary layer change
+        // Right (home row) momentary layer 2 change
         right_hand_LT: right_hand_LT {
             compatible = "zmk,behavior-hold-tap";
             label = "RIGHT_HAND_LT";
@@ -73,7 +77,10 @@
             hold-trigger-on-release;
         };
 
-        // Left home row shift
+        // Momentary Layer
+        // https://zmk.dev/docs/keymaps/behaviors/layers#momentary-layer
+
+        // Left (home row) Shift
         left_hand_MT: left_hand_MT {
             compatible = "zmk,behavior-hold-tap";
             label = "LEFT_HAND_MT";
@@ -88,7 +95,7 @@
             quick-tap-ms = <175>;
         };
 
-        // Right home row shift
+        // Right (home row) Shift
         right_hand_MT: right_hand_MT {
             compatible = "zmk,behavior-hold-tap";
             label = "RIGHT_HAND_MT";
@@ -103,23 +110,29 @@
             hold-trigger-on-release;
         };
 
-        // Shift/Caps Word tap dance
-        // https://zmk.dev/docs/keymaps/behaviors/caps-word
+        // Tap dance
+        // https://zmk.dev/docs/keymaps/behaviors/tap-dance
+
+        // Tab dance 1: Shift - 2: Caps Word (see above)
         shift_caps_lock: shift_caps_lock {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&kp RSHFT>, <&caps_word>;
-        };
-
-        tap_dance_alfred: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
+        
+        // Tab dance 1aunch Alfred app - 2: sticky MEH key combination
+        // https://zmkv/docs/keymaps/behaviors/sticky-key
+        td_alfred_meh: tap_dance_alfred_meh {
+            compatible = k,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&alfred>, <&sk LS(LA(LEFT_CONTROL))>;
         };
 
     };
+
+    // Combos
+    // https://zmk.dev/docs/keymaps/combos
 
     combos {
         compatible = "zmk,combos";
@@ -242,20 +255,20 @@
         // Momentary activate the action (4) and mouse (3) layers from this layer
         // Hit escape to get back to this layer (if you've toggled to another layer)
         default_layer {
-            // ╭──────────────────────────────────────────────────────────╮                     ╭──────────────────────────────────────────────────────────────────────────────────╮
-            // │ ESC   │  1  │  2  │  3           │  4         │  5       │                     │  6       │  7          │  8           │  9  │  0  │ BKSPC                         │
-            // │ TAB   │  Q  │  W  │  E           │  R         │  T       │                     │  Y       │  U          │  I           │  O  │  P  │   -                           │
-            // │ CTRL  │  A  │  S  │  D / Layer 2 │  F / SHIFT │  G       ╰─────────╮  ╭────────╯  H       │  J  / SHIFT │  K / Layer 2 │  L  │  ;  │   '                           │
-            // │ SHIFT │  Z  │  X  │  C           │  V         │  B       │ Alfred  │  │ Mute   │  N       │  M          │  ,           │  .  │  /  │ TD 1: Shift - TD 2: Caps Lock │
-            // ╰───────────────────╮  ALT         │  GUI       │  Layer 4 │ SPACE   │  │ ENTER  │  Layer 4 │  GUI        │  CTRL        ╭───────────────────────────────────────────╯
-            //                     ╰────────────────────────────────────────────────╯  ╰───────────────────────────────────────────────╯
+            // ╭──────────────────────────────────────────────────────────╮                                    ╭───────────────────────────────────────────────────────────────────────────────────╮
+            // │ ESC   │  1  │  2  │  3           │  4         │  5       │                                    │  6       │  7          │  8           │  9  │  0  │ BKSPC                         │
+            // │ TAB   │  Q  │  W  │  E           │  R         │  T       │                                    │  Y       │  U          │  I           │  O  │  P  │   -                           │
+            // │ CTRL  │  A  │  S  │  D / Layer 2 │  F / SHIFT │  G       ╰────────────────────────╮  ╭────────╯  H       │  J  / SHIFT │  K / Layer 2 │  L  │  ;  │   '                           │
+            // │ SHIFT │  Z  │  X  │  C           │  V         │  B       │ TD1: Alfred - TD2: MEH │  │ Mute   │  N       │  M          │  ,           │  .  │  /  │ TD 1: Shift - TD 2: Caps Lock │
+            // ╰───────────────────╮  ALT         │  GUI       │  Layer 4 │ SPACE                  │  │ ENTER  │  Layer 4 │  GUI        │  CTRL        ╭───────────────────────────────────────────╯
+            //                     ╰───────────────────────────────────────────────────────────────╯  ╰────────────────────────────────────────────────╯
 
             bindings = <
-&kp ESC        &kp N1  &kp N2  &kp N3             &kp N4                      &kp N5                           &kp N6  &kp N7                        &kp N8              &kp N9   &kp N0    &kp BSPC
-&kp TAB        &kp Q   &kp W   &kp E              &kp R                       &kp T                            &kp Y   &kp U                         &kp I               &kp O    &kp P     &kp MINUS
-&kp LCTRL      &kp A   &kp S   &left_hand_LT 2 D  &left_hand_MT LEFT_SHIFT F  &kp G                            &kp H   &right_hand_MT RIGHT_SHIFT J  &right_hand_LT 2 K  &kp L    &kp SEMI  &kp SQT
-&kp LSHFT      &kp Z   &kp X   &kp C              &kp V                       &kp B   &tap_dance_alfred      &kp C_MUTE  &kp N   &kp M                         &kp COMMA           &kp DOT  &kp FSLH  &shift_caps_lock
-                               &kp LALT           &kp LGUI                    &mo 4   &kp SPACE    &kp ENTER   &mo 4   &kp RGUI                      &kp RCTRL
+&kp ESC        &kp N1  &kp N2  &kp N3             &kp N4                      &kp N5                                &kp N6  &kp N7                        &kp N8              &kp N9   &kp N0    &kp BSPC
+&kp TAB        &kp Q   &kp W   &kp E              &kp R                       &kp T                                 &kp Y   &kp U                         &kp I               &kp O    &kp P     &kp MINUS
+&kp LCTRL      &kp A   &kp S   &left_hand_LT 2 D  &left_hand_MT LEFT_SHIFT F  &kp G                                 &kp H   &right_hand_MT RIGHT_SHIFT J  &right_hand_LT 2 K  &kp L    &kp SEMI  &kp SQT
+&kp LSHFT      &kp Z   &kp X   &kp C              &kp V                       &kp B   &td_alfred_meh    &kp C_MUTE  &kp N   &kp M                         &kp COMMA           &kp DOT  &kp FSLH  &shift_caps_lock
+                               &kp LALT           &kp LGUI                    &mo 4   &kp SPACE         &kp ENTER   &mo 4   &kp RGUI                      &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -273,11 +286,11 @@
             //                    ╰───────────────────────╯  ╰───────────────────────╯
 
             bindings = <
-&to  0  &trans  &trans  &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &kp D   &kp F   &trans                        &trans  &kp J   &kp K  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans    &trans    &trans  &trans  &trans
+&to  0  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &kp D   &kp F   &trans                    &trans  &kp J   &kp K   &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
