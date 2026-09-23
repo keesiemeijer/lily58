@@ -131,7 +131,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&alfred>, <&sk LS(LA(LEFT_CONTROL))>;
+            bindings = <&alfred>, <&sticky_meh>;
         };
 
     };
@@ -203,6 +203,18 @@
                 , <&macro_release &to 0>
                 ,<&macro_press &kp LA(SPACE)>
                 , <&macro_release &kp LA(SPACE)>
+                ;
+        };
+
+        // Switch to layer 0 before using sticky MEH
+        sticky_meh: sticky_meh {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &to 0>
+                , <&macro_release &to 0>
+                ,<&macro_press &sk LS(LA(LEFT_CONTROL))>
+                , <&macro_release  &sk LS(LA(LEFT_CONTROL))>
                 ;
         };
 
