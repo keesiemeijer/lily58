@@ -1,5 +1,5 @@
 /*
- * Lights up (layer + 1) LEDs of a strip for a short time when the layer changes.
+ * Layer 0: all LEDs orange. Layer N: N green LEDs. Shown for a short time when the layer changes.
  */
 
 #include <zephyr/device.h>
@@ -23,11 +23,23 @@ static K_WORK_DELAYABLE_DEFINE(show_work, show_handler);
 static K_WORK_DELAYABLE_DEFINE(clear_work, clear_handler);
 
 static void show_handler(struct k_work *work) {
-    int lit = zmk_keymap_highest_layer_active() + 1;
+    int layer = zmk_keymap_highest_layer_active();
+    struct led_rgb color;
+    int lit;
+
+    if (layer == 0) {
+        // Orange on all LEDs
+        color = (struct led_rgb){.r = CONFIG_ZMK_LAYER_LEDS_BRIGHTNESS,
+                                 .g = CONFIG_ZMK_LAYER_LEDS_BRIGHTNESS * 2 / 5,
+                                 .b = 0};
+        lit = STRIP_LEN;
+    } else {
+        color = (struct led_rgb){.r = 0, .g = CONFIG_ZMK_LAYER_LEDS_BRIGHTNESS, .b = 0};
+        lit = layer;
+    }
 
     for (int i = 0; i < STRIP_LEN; i++) {
-        pixels[i] = (struct led_rgb){
-            .r = 0, .g = i < lit ? CONFIG_ZMK_LAYER_LEDS_BRIGHTNESS : 0, .b = 0};
+        pixels[i] = i < lit ? color : (struct led_rgb){0};
     }
 
     led_strip_update_rgb(strip, pixels, STRIP_LEN);

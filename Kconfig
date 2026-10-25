@@ -9,8 +9,8 @@ config ZMK_LAYER_LEDS_DURATION_MS
     default 1000
 
 config ZMK_LAYER_LEDS_BRIGHTNESS
-    int "Brightness of the green LEDs (0-255)"
+    int "Brightness of the LEDs (0-255)"
     range 0 255
-    default 128
+    default 64
 
 endif
