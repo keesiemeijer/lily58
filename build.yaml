@@ -17,11 +17,11 @@
 #     cmake-args: -DCONFIG_ZMK_STUDIO=y
 #     artifact-name: corne_left_with_studio
 #
+# The following section defines the build matrix for a dongle and  the Lily58 left and right halves45.
 ---
 include:
     - board: nice_nano_v2
       shield: keyworks_lily58_left
-      artifact-name: keyworks_lily58_left_peripheral
     - board: nice_nano_v2
       shield: keyworks_lily58_right
     - board: nice_nano_v2
