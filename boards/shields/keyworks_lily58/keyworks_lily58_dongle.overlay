@@ -11,7 +11,7 @@
 / {
     chosen {
         zmk,kscan = &mock_kscan;
-        zmk,layer-leds = &led_strip;
+        zmk,led-feedback = &led_strip;
     };
 
     // The dongle has no switches, the keys are sent by the two halves.
