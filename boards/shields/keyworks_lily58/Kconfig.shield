@@ -8,3 +8,7 @@ config SHIELD_KEYWORKS_LILY58_LEFT
 # No whitespace after the comma or in your part name!
 config SHIELD_KEYWORKS_LILY58_RIGHT
     def_bool $(shields_list_contains,keyworks_lily58_right)
+
+# No whitespace after the comma or in your part name!
+config SHIELD_KEYWORKS_LILY58_DONGLE
+    def_bool $(shields_list_contains,keyworks_lily58_dongle)
