@@ -1,0 +1,16 @@
+config ZMK_LAYER_LEDS
+    bool "Briefly show the active layer on an LED strip"
+    depends on LED_STRIP && ZMK_SPLIT_ROLE_CENTRAL
+
+if ZMK_LAYER_LEDS
+
+config ZMK_LAYER_LEDS_DURATION_MS
+    int "Time in milliseconds the LEDs stay lit"
+    default 1000
+
+config ZMK_LAYER_LEDS_BRIGHTNESS
+    int "Brightness of the green LEDs (0-255)"
+    range 0 255
+    default 128
+
+endif
