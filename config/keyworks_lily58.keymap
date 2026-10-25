@@ -354,11 +354,11 @@
             //                                        ╰───────────────────────────────────────────────────╯  ╰──────────────────────────────────────╯
 
             bindings = <
-&to 2   &kp LC(F2)          &kp LC(F8)  &kp LC(F5)  &trans  &kp LC(F3)                           &trans          &trans           &trans          &trans           &trans  &trans
-&trans  &led_fb LF_BRI_INC  &trans      &trans      &trans  &page_top_layer0                     &msc SCRL_DOWN  &mkp MB1         &mmv MOVE_UP    &mkp MB2         &trans  &msc SCRL_DOWN
-&trans  &led_fb LF_BRI_DEC  &trans      &trans      &trans  &page_bottom_layer0                  &msc SCRL_UP    &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &msc SCRL_UP
-&to 0   &trans              &trans      &trans      &trans  &trans               &trans  &trans  &msc SCRL_UP    &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_LEFT   &trans  &to 0
-                                        &trans      &trans  &trans               &trans  &trans  &trans          &trans
+&to 2   &kp LC(F2)          &kp LC(F8)      &kp LC(F5)  &trans  &kp LC(F3)                           &trans          &trans           &trans          &trans           &trans  &trans
+&trans  &led_fb LF_BRI_INC  &led_fb LF_TOG  &trans      &trans  &page_top_layer0                     &msc SCRL_DOWN  &mkp MB1         &mmv MOVE_UP    &mkp MB2         &trans  &msc SCRL_DOWN
+&trans  &led_fb LF_BRI_DEC  &trans          &trans      &trans  &page_bottom_layer0                  &msc SCRL_UP    &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &msc SCRL_UP
+&to 0   &trans              &trans          &trans      &trans  &trans               &trans  &trans  &msc SCRL_UP    &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_LEFT   &trans  &to 0
+                                            &trans      &trans  &trans               &trans  &trans  &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -399,7 +399,7 @@
             bindings = <
 &bt BT_CLR  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                    &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &trans       &trans  &trans
 &trans      &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                   &trans            &trans             &trans             &trans       &trans  &trans
-&trans      &trans         &trans         &trans         &trans         &trans                          &led_fb LF_BRI_INC  &led_fb LF_BRI_DEC  &trans             &trans       &trans  &trans
+&trans      &trans         &trans         &trans         &trans         &trans                          &led_fb LF_BRI_INC  &led_fb LF_BRI_DEC  &led_fb LF_TOG  &trans       &trans  &trans
 &trans      &trans         &bootloader    &trans         &trans         &trans        &to 6     &trans  &trans            &trans             &trans             &bootloader  &trans  &trans
                                           &trans         &trans         &trans        &trans    &trans  &trans            &trans             &trans
             >;
