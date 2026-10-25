@@ -1,16 +1,12 @@
-config ZMK_LAYER_LEDS
-    bool "Briefly show the active layer on an LED strip"
-    depends on LED_STRIP && ZMK_SPLIT_ROLE_CENTRAL
+config ZMK_LAYER_LEDS bool "Briefly show the active layer on an LED strip" depends on LED_STRIP &&ZMK_SPLIT_ROLE_CENTRAL
 
-if ZMK_LAYER_LEDS
+    if ZMK_LAYER_LEDS
 
-config ZMK_LAYER_LEDS_DURATION_MS
-    int "Time in milliseconds the LEDs stay lit"
-    default 1000
+        config ZMK_LAYER_LEDS_DURATION_MS int "Time in milliseconds the LEDs stay lit" default 1000
 
-config ZMK_LAYER_LEDS_BRIGHTNESS
-    int "Brightness of the LEDs (0-255)"
-    range 0 255
-    default 64
+    config ZMK_LAYER_LEDS_BRIGHTNESS int "Brightness of the LEDs (0-255)" range 0 255 default 64
 
-endif
+    config ZMK_LAYER_LEDS_LEFT_SLOT int "Peripheral slot of the left half (0 or 1)" range 0 1 default 0 help
+        Slots are filled in the order the halves first pair with the dongle.Set this to 1 if the right half paired first.
+
+    endif
