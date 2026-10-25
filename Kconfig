@@ -11,7 +11,7 @@ config ZMK_LAYER_LEDS_DURATION_MS
 config ZMK_LAYER_LEDS_BRIGHTNESS
     int "Brightness of the LEDs (0-255)"
     range 0 255
-    default 64
+    default 32
 
 config ZMK_LAYER_LEDS_LEFT_SLOT
     int "Peripheral slot of the left half (0 or 1)"
