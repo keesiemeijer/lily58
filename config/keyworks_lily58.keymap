@@ -186,7 +186,6 @@
         };
     };
 
-
     macros {
         // Switch to layer 0 before using Homerow app
         howmerow: howmerow {
