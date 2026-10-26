@@ -1,15 +1,27 @@
 #include <zmk_led_feedback.h>
 
-// Layer 2 shows 3 LEDs, all other layers keep the module's count.
+// Layer 0 and layer 1 show 1 LED, layer N shows N LEDs. After all LEDs are used, the next layer
+// starts again at 1 LED.
+int zmk_led_feedback_layer_led_count(int layer, int count)
+{
+    // Layer 0 shows 1 LED, all other layers show a number of LEDs based on the strip length.
+    if (layer == 0)
+    {
+        return 1;
+    }
 
-// int zmk_led_feedback_layer_led_count(int layer, int count)
-// {
-//     return layer == 2 ? 3 : count;
-// }
+    // For all other layers, the number of LEDs is determined by the strip length.
+    return ((layer - 1) % zmk_led_feedback_strip_length()) + 1;
+}
 
-// Layer 2 shows its LEDs in red.
+// Layer 0 uses its own color. The color changes each time all LEDs have been used (layers 1 to
+// the number of LEDs use the first color).
+uint32_t zmk_led_feedback_layer_color(int layer, int led_count, uint32_t color)
+{
+    if (layer == 0)
+    {
+        return 0xF5F527;
+    }
 
-// uint32_t zmk_led_feedback_layer_color(int layer, int led_count, uint32_t color)
-// {
-//     return layer == 2 ? 0xFF0000 : color;
-// }
+    return zmk_led_feedback_palette_color((layer - 1) / zmk_led_feedback_strip_length());
+}
