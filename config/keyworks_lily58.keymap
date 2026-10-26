@@ -55,6 +55,12 @@
             #binding-cells = <1>;
         };
 
+        // Battery level of a peripheral: 1 = first LED number, 2 = second, 0 = all
+        led_bat: led_feedback_battery {
+            compatible = "zmk,behavior-led-feedback-battery";
+            #binding-cells = <1>;
+        };
+
         // Layer Tap
         //https://zmk.dev/docs/keymaps/behaviors/hold-tap#layer-tap
 
@@ -356,8 +362,8 @@
             bindings = <
 &to 2   &kp LC(F2)          &kp LC(F8)            &kp LC(F5)  &trans  &kp LC(F3)                           &trans          &trans           &trans          &trans           &trans  &trans
 &trans  &led_fb LF_BRI_INC  &led_fb LF_TOG        &trans      &trans  &page_top_layer0                     &msc SCRL_DOWN  &mkp MB1         &mmv MOVE_UP    &mkp MB2         &trans  &msc SCRL_DOWN
-&trans  &led_fb LF_BRI_DEC  &led_fb LF_LAYER      &trans     &trans  &page_bottom_layer0                  &msc SCRL_UP    &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &msc SCRL_UP
-&to 0   &trans              &led_fb LF_LAYER_TOG  &trans      &trans  &trans               &trans  &trans  &msc SCRL_UP    &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_LEFT   &trans  &to 0
+&trans  &led_fb LF_BRI_DEC  &led_fb LF_LAYER      &trans      &trans  &page_bottom_layer0                  &msc SCRL_UP    &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &msc SCRL_UP
+&to 0   &trans              &led_fb LF_LAYER_TOG  &led_bat 1  &led_bat 2  &led_bat 0               &trans  &trans  &msc SCRL_UP    &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_LEFT   &trans  &to 0
                                                   &trans      &trans  &trans               &trans  &trans  &trans          &trans
             >;
 
