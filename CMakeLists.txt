@@ -1,0 +1,2 @@
+zephyr_library()
+zephyr_library_sources_ifdef(CONFIG_ZMK_LED_FEEDBACK src/led_feedback_hooks.c)

@@ -1,4 +1,5 @@
 name: zmk-keyboard-keyworks_lily58
 build:
+    cmake: .
     settings:
         board_root: .
