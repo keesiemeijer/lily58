@@ -20,7 +20,7 @@ uint32_t zmk_led_feedback_layer_color(int layer, int led_count, uint32_t color)
 {
     if (layer == 0)
     {
-        return 0xF5F527;
+        return 0xF58E27;
     }
 
     return zmk_led_feedback_palette_color((layer - 1) / zmk_led_feedback_strip_length());
