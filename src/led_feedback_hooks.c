@@ -31,5 +31,7 @@ uint32_t zmk_led_feedback_layer_color(int layer, int led_count, uint32_t color)
 
     // The round: 0 for the first strip length of layers, 1 for the next, and so on.
     // return zmk_led_feedback_palette_color((layer - 1) / zmk_led_feedback_strip_length());
-    return 0x800080;
+    // return 800080
+    // return zmk_led_feedback_palette_color((layer - 1) / zmk_led_feedback_strip_length());
+    return color;
 }
