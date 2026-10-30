@@ -1,20 +1,15 @@
 #include <zmk_led_feedback.h>
 
-// The hooks below change the default behaviour and shift the
-// LED count 1 down for all layers except layer 0. (e.g., layer 2 shows 2 leds)
-// Layer 0 also gets its own unique color.
+// The hooks below shift the LED count down by 1 for all layers except layer 0.
+// Layer 0 gets its own unique color.
 
-// layer | LEDs | color
-// ------+------+-----------------------
-//   0   |  1   | 0xF58E27 (own color)
-//   1-4 | 1-4  | first palette color
-//   5-8 | 1-4  | second palette color
-//   9   |  1   | third palette color (and so on, the palette repeats)
+// Layer 0 shows 1 LED with its unique color.
+// Layer 1 shows 1 LED with normal palette color.
+// Layer 2 shows 2 LEDs with normal palette color.
+// Etc...
 
-int zmk_led_feedback_layer_led_count(int layer, int count)
-{
-    if (layer == 0)
-    {
+int zmk_led_feedback_layer_led_count(int layer, int count) {
+    if (layer == 0) {
         return 1;
     }
 
@@ -22,16 +17,16 @@ int zmk_led_feedback_layer_led_count(int layer, int count)
     return ((layer - 1) % zmk_led_feedback_strip_length()) + 1;
 }
 
-uint32_t zmk_led_feedback_layer_color(int layer, int led_count, uint32_t color)
-{
-    if (layer == 0)
-    {
+uint32_t zmk_led_feedback_layer_color(int layer, int led_count, uint32_t color) {
+    if (layer == 0) {
+        // Layer 0 has its own unique color.
         return 0xF58E27;
     }
 
-    // The round: 0 for the first strip length of layers, 1 for the next, and so on.
+    // If you're using per-layer colors use `return color;` as the return statement below instead of the palette color.
+    // The per-layer palette is indexed by layer, so no index shift is needed.
+
+    // Because the LED count is shifted down by 1 for layers above 0,
+    // we also have the palette color index shifted down by 1 for layers above 0.
     return zmk_led_feedback_palette_color((layer - 1) / zmk_led_feedback_strip_length());
-    // return 800080
-    // return zmk_led_feedback_palette_color((layer - 1) / zmk_led_feedback_strip_length());
-    // return color;
 }
