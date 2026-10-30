@@ -28,5 +28,6 @@ uint32_t zmk_led_feedback_layer_color(int layer, int led_count, uint32_t color) 
 
     // Because the LED count is shifted down by 1 for layers above 0,
     // we also have the palette color index shifted down by 1 for layers above 0.
-    return zmk_led_feedback_palette_color((layer - 1) / zmk_led_feedback_strip_length());
+    //return zmk_led_feedback_palette_color((layer - 1) / zmk_led_feedback_strip_length());
+    return color;
 }
