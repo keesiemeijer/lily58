@@ -363,20 +363,20 @@
         // Layer (3). Mouse and scroll movements
         // To toggle the mouse layer, momentary activate the action layer (4) and hit shift at the same time
         mouse_layer {
-            // ╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮              ╭─────────────────────────────────────────────────────────────╮
-            // │  L2  │ focus menu bar          │ focus status        │ focus window toolbar │                      │ focus dock │              │          │          │          │          │     │           │
-            // │      │ dongle on               │ dongle brightness + │ dongle battery left  │ dongle battery right │ top        │              │ scroll v │  L click │ mouse ∧  │ R click  │     │ scroll v  │
-            // │      │ dongle off              │ dongle brightness - │                      │ dongle battery both  │ bottom     ╰─────╮  ╭─────╯ scroll ∧ │  < mouse │ mouse v  │ mouse >  │     │ scroll ∧  │
-            // │  L0  │ dongle layer continuous │                     │                      │                      │            │     │  │     │          │ scroll > │ < scroll │ < scroll │     │ toggle L0 │
-            // ╰──────────────────────────────────────────────────────╮                      │                      │            │     │  │     │          │          │          ╭────────────────────────────╯
+            // ╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮              ╭───────────────────────────────────────────────────────────────────╮
+            // │  L2  │ focus menu bar          │ focus status        │ focus window toolbar │                      │ focus dock │              │          │          │          │          │ toggle L0 │           │
+            // │  L0  │ dongle on               │ dongle brightness + │ dongle battery left  │ dongle battery right │ top        │              │ scroll v │  L click │ mouse ∧  │ R click  │           │ scroll v  │
+            // │      │ dongle off              │ dongle brightness - │                      │ dongle battery both  │ bottom     ╰─────╮  ╭─────╯ scroll ∧ │  < mouse │ mouse v  │ mouse >  │           │ scroll ∧  │
+            // │      │ dongle layer continuous │                     │                      │                      │            │     │  │     │          │ scroll > │ < scroll │ < scroll │           │           │
+            // ╰──────────────────────────────────────────────────────╮                      │                      │            │     │  │     │          │          │          ╭──────────────────────────────────╯
             //                                                        ╰────────────────────────────────────────────────────────────────╯  ╰──────────────────────────────────────╯
 
 
             bindings = <
-&to 2   &kp LC(F2)            &kp LC(F8)          &kp LC(F5)  &trans          &kp LC(F3)                           &trans          &trans           &trans          &trans           &trans  &trans
-&trans  &led_fb LF_ON         &led_fb LF_BRI_INC  &led_bat 1  &led_bat 2      &page_top_layer0                     &msc SCRL_DOWN  &mkp MB1         &mmv MOVE_UP    &mkp MB2         &trans  &msc SCRL_DOWN
+&to 2   &kp LC(F2)            &kp LC(F8)          &kp LC(F5)  &trans          &kp LC(F3)                           &trans          &trans           &trans          &trans           &to 0   &trans
+&to 0   &led_fb LF_ON         &led_fb LF_BRI_INC  &led_bat 1  &led_bat 2      &page_top_layer0                     &msc SCRL_DOWN  &mkp MB1         &mmv MOVE_UP    &mkp MB2         &trans  &msc SCRL_DOWN
 &trans  &led_fb LF_OFF        &led_fb LF_BRI_DEC  &trans      &led_bat 0      &page_bottom_layer0                  &msc SCRL_UP    &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &msc SCRL_UP
-&to 0   &led_fb LF_LAYER_TOG  &trans              &trans      &trans          &trans               &trans  &trans  &msc SCRL_UP    &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_LEFT   &trans  &to 0
+&trans  &led_fb LF_LAYER_TOG  &trans              &trans      &trans          &trans               &trans  &trans  &msc SCRL_UP    &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_LEFT   &trans  &trans
                                                   &trans      &trans          &trans               &trans  &trans  &trans          &trans
             >;
 
