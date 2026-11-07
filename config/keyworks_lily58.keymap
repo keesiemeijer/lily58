@@ -191,10 +191,16 @@
             key-positions = <31 32>;
         };
 
-        // ctrl + shift: show layer on dongle
+        // ctrl + shift: show layer on dongle left
         combo_dongle_layer_left {
             bindings = <&led_fb LF_LAYER>;
             key-positions = <36 24>;
+        };
+
+        // shift + ': show layer on dongle right
+        combo_dongle_layer_right {
+            bindings = <&led_fb LF_LAYER>;
+            key-positions = <49 35>;
         };
     };
 
@@ -357,21 +363,21 @@
         // Layer (3). Mouse and scroll movements
         // To toggle the mouse layer, momentary activate the action layer (4) and hit shift at the same time
         mouse_layer {
-            // ╭────────────────────────────────────────────────────────────────────────────────────╮              ╭─────────────────────────────────────────────────────────────╮
-            // │  L2  │ focus menu bar │ focus status │ focus window toolbar │         │ focus dock │              │          │          │          │          │     │           │
-            // │      │                │              │                      │         │ top        │              │ scroll v │  L click │ mouse ∧  │ R click  │     │ scroll v  │
-            // │      │                │              │                      │         │ bottom     ╰─────╮  ╭─────╯ scroll ∧ │  < mouse │ mouse v  │ mouse >  │     │ scroll ∧  │
-            // │  L0  │                │              │                      │         │ bottom     │     │  │     │          │ scroll > │ < scroll │ < scroll │     │ toggle L0 │
-            // ╰──────────────────────────────────────╮                      │         │            │     │  │     │          │          │          ╭────────────────────────────╯
-            //                                        ╰───────────────────────────────────────────────────╯  ╰──────────────────────────────────────╯
+            // ╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮              ╭─────────────────────────────────────────────────────────────╮
+            // │  L2  │ focus menu bar          │ focus status        │ focus window toolbar │                      │ focus dock │              │          │          │          │          │     │           │
+            // │      │ dongle on               │ dongle brightness + │ dongle battery left  │ dongle battery right │ top        │              │ scroll v │  L click │ mouse ∧  │ R click  │     │ scroll v  │
+            // │      │ dongle off              │ dongle brightness - │                      │ dongle battery both  │ bottom     ╰─────╮  ╭─────╯ scroll ∧ │  < mouse │ mouse v  │ mouse >  │     │ scroll ∧  │
+            // │  L0  │ dongle layer continuous │                     │                      │                      │            │     │  │     │          │ scroll > │ < scroll │ < scroll │     │ toggle L0 │
+            // ╰──────────────────────────────────────────────────────╮                      │                      │            │     │  │     │          │          │          ╭────────────────────────────╯
+            //                                                        ╰────────────────────────────────────────────────────────────────╯  ╰──────────────────────────────────────╯
 
 
             bindings = <
-&to 2   &kp LC(F2)          &kp LC(F8)       &kp LC(F5)            &trans      &kp LC(F3)                           &trans          &trans           &trans          &trans           &trans  &trans
-&trans  &led_fb LF_BRI_INC  &led_fb LF_ON    &led_fb LF_LAYER      &trans      &page_top_layer0                     &msc SCRL_DOWN  &mkp MB1         &mmv MOVE_UP    &mkp MB2         &trans  &msc SCRL_DOWN
-&trans  &led_fb LF_BRI_DEC  &led_fb LF_OFF   &led_fb LF_LAYER_TOG  &trans      &page_bottom_layer0                  &msc SCRL_UP    &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &msc SCRL_UP
-&to 0   &trans              &led_fb LF_TOG   &led_bat 1            &led_bat 2  &led_bat 0           &trans  &trans  &msc SCRL_UP    &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_LEFT   &trans  &to 0
-                                             &trans                &trans      &trans               &trans  &trans  &trans          &trans
+&to 2   &kp LC(F2)            &kp LC(F8)          &kp LC(F5)  &trans          &kp LC(F3)                           &trans          &trans           &trans          &trans           &trans  &trans
+&trans  &led_fb LF_ON         &led_fb LF_BRI_INC  &led_bat 1  &led_bat 2      &page_top_layer0                     &msc SCRL_DOWN  &mkp MB1         &mmv MOVE_UP    &mkp MB2         &trans  &msc SCRL_DOWN
+&trans  &led_fb LF_OFF        &led_fb LF_BRI_DEC  &trans      &led_bat 0      &page_bottom_layer0                  &msc SCRL_UP    &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &msc SCRL_UP
+&to 0   &led_fb LF_LAYER_TOG  &trans              &trans      &trans          &trans               &trans  &trans  &msc SCRL_UP    &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_LEFT   &trans  &to 0
+                                                  &trans      &trans          &trans               &trans  &trans  &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -380,7 +386,7 @@
     // Layer (4). Action layer
     action_layer {
             // ╭───────────────────────────────────────────────────────────────────────────────────╮                ╭───────────────────────────────────────────────────────────────────╮
-            // │ undo      │ brightness + │ brightness - │ mission ctrl │ launchpad │ focus dock   │                │ prev     │ pause/play │   next   │ mute     │ vol -   │ vol +     │
+            // │ undo      │ brightness + │ brightness - │ mission ctrl │ launchpad │ windowsize   │                │ prev     │ pause/play │   next   │ mute     │ vol -   │ vol +     │
             // │ redo      │ cmd Q        │ cmd W        │ esc          │ hypr R    │ zoom +       │                │ scroll v │     < hist │     ∧    │ hist >   │         │ scroll v  │
             // │ L5        │ control      │ alt          │ L gui        │ L shft    │ zoom -       ╰───────╮  ╭─────╯ scroll ∧ │          < │     v    │ >        │ Finder  │ scroll ∧  │
             // │ toggle L3 │ < window     │ window >     │ wndw full    │ wndw cntr │ zoom 0       │ cmd ~ │  │     │ < tab    │      tab > │ < mv tab │ mv tab > │         │ toggle L3 │
