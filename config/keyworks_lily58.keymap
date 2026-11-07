@@ -190,6 +190,12 @@
             bindings = <&mo 3>;
             key-positions = <31 32>;
         };
+
+        // ctrl + shift: show layer on dongle
+        combo_dongle_layer_left {
+            bindings = <&led_fb LF_LAYER>;
+            key-positions = <36 24>;
+        };
     };
 
 
