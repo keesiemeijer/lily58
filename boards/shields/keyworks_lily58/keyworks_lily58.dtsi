@@ -39,6 +39,7 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,5) RC(4,6) RC(3,6) RC(3,7) 
         diode-direction = "col2row";
     };
 
+/*
      left_encoder: left_encoder {
         compatible = "alps,ec11";
         steps = <80>;
@@ -62,6 +63,7 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,5) RC(4,6) RC(3,6) RC(3,7) 
         sensors = <&left_encoder &right_encoder>;
         triggers-per-rotation = <20>;
     };
+ */
 };
 
 &kata0510_lily58_layout {
