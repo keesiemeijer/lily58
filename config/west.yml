@@ -13,6 +13,6 @@ manifest:
           import: app/west.yml
         - name: zmk-led-feedback
           remote: keesiemeijer
-          revision: feature/startup-diagnostic
+          revision: warning-types
     self:
         path: config
